@@ -8,7 +8,7 @@
 
 Small tool for creating pitch accent marks in HTML, to be used in Anki.
 
-To add HTML-formatted stuff to Anki cards use `ctrl + x`
+To add HTML-formatted stuff to Anki cards use `ctrl + shift + x`
 
 ## icon source
 

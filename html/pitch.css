@@ -1,0 +1,82 @@
+@font-face {
+    font-family: "NotoSansJP";
+    src: url("ressources/fonts/Noto_Sans_JP/NotoSansJP-VariableFont_wght.ttf");
+}
+body {
+    margin: 0;
+    background-color: #d3d3d3;
+}
+h1 {
+    margin: 0;
+}
+#boxtitle {
+    font-size: 20px;
+    margin: 0px;
+    padding: 20px 0px 0px 0px;
+    text-align: left;
+}
+#titlebar {
+    font-family: 'arial';
+    color: white;
+    padding: 20px;
+    margin: 0px;
+    background-color: #333;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.container {
+    font-family: "NotoSansJP";
+    width: 300px;
+    margin: 50px auto;
+    padding: 0px 65px 50px 65px;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+#explanation {
+    font-size: 12px;
+}
+.output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.textbox {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+.buttons {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+.buttons button {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+}
+.buttons button img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 3px;
+}
+.arrow-buttons {
+    float: left;
+}
+#button-reset {
+    float: right;
+}
+.output-textbox {
+    width: 140%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #f0f0f0;
+    border: none;
+    resize: none;
+    cursor: default;
+    box-sizing: border-box;
+    height: 150px;
+}
+#preview {
+    margin-top: 15px;
+}

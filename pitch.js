@@ -92,6 +92,7 @@ translationInput.addEventListener('input', inputHandler);
 // functions
 function display() {
     currentWord = word.toString()+String(translationInput.value);
+    currentWord = currentWord.replace(/(?:\r\n|\r|\n)/g, '<br>');
     outputRaw.value         = currentWord;
     outputExample.innerHTML = currentWord;
     console.log(outputRaw.scrollHeight);

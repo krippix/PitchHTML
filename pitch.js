@@ -79,6 +79,8 @@ const clickReset = function() {
     translationInput.value = "";
     outputRaw.value = "";
     outputExample.value = "";
+    word.setWord("");
+    display();
 }
 
 

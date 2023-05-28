@@ -15,6 +15,7 @@ class Word {
         if (this.word !== word) {
             this.word = word;
             this.pitch = new Array(word.length).fill(false);
+            this.last = false;
         }
     }
   

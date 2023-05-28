@@ -2,11 +2,13 @@ class Word {
     constructor(word) {
         this.word = word;
         this.pitch = new Array(word.length).fill(false);
+        this.last = false; // true if ending differs from pitch of last symbol
     }
   
     reset() {
         this.pitch = [];
         this.word = "";
+        this.last = false;
     }
   
     setWord(word) {
@@ -20,25 +22,55 @@ class Word {
         for (let x = fromPos; x < toPos; x++) {
             this.pitch[x] = pitch;
         }
+        if (fromPos == this.word.length) {
+            if (pitch != this.pitch[this.word.length-1]){
+                this.last = true;
+            } else {
+                this.last = false;
+            }
+        }
     }
   
     toString() {
+        var lastChange = 0;
+        var right = "";
         let result = "";
+
+        if (this.last) {
+            // go through the word backwards
+            for (let x = this.word.length-1; x > 0; x--) {
+                if (this.pitch[x] != this.pitch[x-1]) {
+                    lastChange = x;
+                    break;
+                }
+            }
+        }        
+        
+        if (lastChange == 0 && this.last) {
+            right = "border-right: 1px dotted;";
+        }
+
         if (this.word === "") {
             return result;
         }
         if (this.pitch[0]) {
-            result = `<span style="border-top: 1px dotted;">${this.word[0]}`;
+            result = `<span style="border-top: 1px dotted; ${right}">${this.word[0]}`;
         } else {
-            result = `<span style="border-bottom: 1px dotted;">${this.word[0]}`;
+            result = `<span style="border-bottom: 1px dotted; ${right}">${this.word[0]}`;
         }
+
+        right = "";
         for (let x = 1; x < this.word.length; x++) {
+            // used in the last run
+            if (this.last && (x == lastChange)) {
+                right = "border-right: 1px dotted;";
+            }
             if (this.pitch[x] === this.pitch[x - 1]) {
                 result += this.word[x];
             } else if (this.pitch[x]) {
-                result += `</span><span style="border-top: 1px dotted; border-left: 1px dotted">${this.word[x]}`;
+                result += `</span><span style="border-top: 1px dotted; border-left: 1px dotted; ${right}">${this.word[x]}`;
             } else {
-                result += `</span><span style="border-bottom: 1px dotted; border-left: 1px dotted">${this.word[x]}`;
+                result += `</span><span style="border-bottom: 1px dotted; border-left: 1px dotted; ${right}">${this.word[x]}`;
             }
         }
         result += '</span><br>';
@@ -97,8 +129,6 @@ function display() {
     currentWord = currentWord.replace(/(?:\r\n|\r|\n)/g, '<br>');
     outputRaw.value         = currentWord;
     outputExample.innerHTML = currentWord;
-    console.log(outputRaw.scrollHeight);
-    outputRaw.style.height = outputRaw.scrollHeight;
 }
 
 // draw in case anything was in the cache
@@ -106,22 +136,3 @@ if (kanaInput) {
     word.setWord(kanaInput.value);
     display();
 }
-
-/*
-function moveUp() {
-    console.log(window.getSelection());
-    var textbox1 = document.getElementById("kana");
-    var textbox2 = document.getElementById("translation");
-    var outputTextbox = document.querySelector(".output-textbox");
-    
-    outputTextbox.value = textbox1.value + "\n" + textbox2.value;
-}
-
-function moveDown() {
-    var textbox1 = document.getElementById("kana");
-    var textbox2 = document.getElementById("translation");
-    var outputTextbox = document.querySelector(".output-textbox");
-    
-    outputTextbox.value = textbox2.value + "\n" + textbox1.value;
-}
-*/

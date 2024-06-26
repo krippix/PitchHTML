@@ -82,14 +82,18 @@ class Word {
 // word object to manipulate
 var word = new Word("");
 
+// check if clipboard is usable
+
 // Update result whenever input changes
-const kanaInput        = document.getElementById('kana');
-const buttonUp         = document.getElementById('up');
-const buttonDown       = document.getElementById('down');
-const buttonReset      = document.getElementById('button-reset');
+const kanaInput = document.getElementById('kana');
+const buttonUp = document.getElementById('btn_up');
+const buttonDown = document.getElementById('btn_down');
+const buttonReset = document.getElementById('btn_x');
 const translationInput = document.getElementById('translation');
-const outputRaw        = document.getElementById('output-raw');
-const outputExample    = document.getElementById('preview');
+const outputRaw = document.getElementById('output-raw');
+const outputExample = document.getElementById('preview_pitch');
+const outputExampleTranslation = document.getElementById('preview_translation');
+const buttonCopy = document.getElementById('btn_copy');
 
 // handler
 const inputHandler = function() {
@@ -112,8 +116,13 @@ const clickReset = function() {
     translationInput.value = "";
     outputRaw.value = "";
     outputExample.value = "";
+    outputExampleTranslation.value = "";
     word.setWord("");
     display();
+}
+
+const copyToClipboard = async () => {
+    await navigator.clipboard.writeText(outputRaw.value);
 }
 
 
@@ -123,13 +132,18 @@ buttonUp.addEventListener('click', clickUp);
 buttonDown.addEventListener('click', clickDown);
 buttonReset.addEventListener('click', clickReset);
 translationInput.addEventListener('input', inputHandler);
+buttonCopy.addEventListener('click', copyToClipboard);
 
 // functions
 function display() {
-    currentWord = word.toString()+String(translationInput.value);
+    currentWord = word.toString();
     currentWord = currentWord.replace(/(?:\r\n|\r|\n)/g, '<br>');
-    outputRaw.value         = currentWord;
+    currentTranslation = String(translationInput.value).replace(/(?:\r\n|\r|\n)/g, '<br>');
+    
+    outputRaw.value = currentWord;
     outputExample.innerHTML = currentWord;
+    outputExampleTranslation.value = currentTranslation;
+    outputExampleTranslation.innerHTML = currentTranslation;
 }
 
 // draw in case anything was in the cache

@@ -1,0 +1,125 @@
+@font-face {
+    font-family: "NotoSansJP";
+    src: url("/assets/fonts/NotoSansJP-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: "OpenSans";
+    src: url("/assets/fonts/OpenSans-VariableFont_wdth,wght.ttf")
+}
+
+body {
+    display: flex;
+    line-height: 120%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d3d3d3;
+    font-family: "OpenSans", "NotoSansJP";
+    font-size: 100%;
+}
+
+#titlebar {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: white;
+    padding: 1em 0;
+    margin: 0px;
+    background-color: #333;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+#titlebar h1 {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    max-width: 400px;
+    background-color: white;
+    margin: 1em 0;
+}
+
+.input_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 20em;
+    padding: 0.5em 0 0.5em 0;
+}
+
+#kana {
+    font-size: 1.5rem;
+    padding: 0.5em;
+}
+
+.button-container {
+    display: flex;
+    max-height: 2em;
+    padding: 0.5em 0;
+}
+
+.buttons {
+    height: 2em;
+    background-color: white;
+    width: auto;
+    border: 1px black solid;
+    cursor: pointer;
+}
+
+#btn_up {
+    margin-right: 1em;
+}
+
+#btn_x {
+    margin-left: auto;
+}
+
+#translation {
+    height: 5em;
+}
+
+.output {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+#txt_area {
+    width: 100%;
+    height: 10em;
+    margin: 1em 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.txt_item {
+    height: 100%;
+    background-color: #f0f0f0;
+}
+
+.output-textbox {
+    flex-grow: 1;
+    margin-right: 0.5em;
+    border: none;
+    resize: none;
+    cursor: default;
+    box-sizing: border-box;
+}
+
+#btn_copy {
+    width: 2em;
+}
+
+#btn_copy:hover {
+    background-color: white;
+}
+
+.preview {
+    font-size: 1.2rem;
+    padding: 0.2em;
+}

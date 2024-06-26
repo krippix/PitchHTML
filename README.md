@@ -1,15 +1,13 @@
-# GustelPitch
+# PitchHTML
 
-## link
+## GitHub Pages Link
 
 <https://krippix.github.io/PitchHTML/>
 
-## description
+## Description
 
-Small tool for creating pitch accent marks in HTML, to be used in Anki.
+A small webapp I created in order to include pitch notation for japanese vocabulary.
 
 To add HTML-formatted stuff to Anki cards use `ctrl + shift + x`
 
-## icon source
-
-<https://www.svgrepo.com/>
+![Anki example image](./assets/img/anki_example.png)

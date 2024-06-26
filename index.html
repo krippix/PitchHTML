@@ -2,29 +2,32 @@
 <html>
 <head>
     <title>PitchHTML</title>
-    <link rel="stylesheet" href="pitch.css">
+    <link rel="stylesheet" href="assets/stylesheets/reset.css">
+    <link rel="stylesheet" href="assets/stylesheets/pitch.css">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
 </head>
 <body>
     <div id="titlebar">
         <h1>PitchHTML</h1>
     </div>
     <div class="container">
-        <h2 id="boxtitle">Pitch accent HTML creator</h2>
         <p id="explanation">To create accent marks, select the part of the text you want changed and click on the appropriate arrow.</p>
-        <div class="input">
+        <div class="input_container">
             <input type="text" class="textbox" id="kana" placeholder="kana">
-            <div class="buttons">
-                <div class="arrow-buttons">
-                    <button id="up"><img src="assets/img/arrow-up-svgrepo-com.svg" alt="&#8593;"></button>
-                    <button id="down"><img src="assets/img/arrow-down-svgrepo-com.svg" alt="&#8595;"></button>
-                </div>
-                <button id="button-reset" style="font-size: 18px;"><img src="assets/img/x-square-svgrepo-com.svg" alt="x"></button>
+            <div class="button-container">
+                <img id="btn_up" class="buttons" src="assets/img/arrow_up.svg" alt="&#8593;">
+                <img id="btn_down" class="buttons" src="assets/img/arrow_down.svg" alt="&#8595;">
+                <img id="btn_x" class="buttons" src="assets/img/x.svg" alt="x">
             </div>
             <textarea class="textbox" id="translation" placeholder="translation"></textarea>
         </div>
         <div class="output">
-            <textarea class="output-textbox" id="output-raw" readonly></textarea>
-            <div id="preview"></div>
+            <div class="output" id="txt_area">
+                <textarea class="output-textbox txt_item" id="output-raw" readonly></textarea>
+                <img id="btn_copy" class="buttons txt_item" src="assets/img/copy.svg" alt="cpy"> 
+            </div>
+            <div class="preview" id="preview_pitch"></div>
+            <div class="preview" id="preview_translation"></div>
         </div>
     </div>
     <script src="pitch.js"></script>

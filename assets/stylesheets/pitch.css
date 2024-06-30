@@ -151,3 +151,18 @@ body {
     font-size: 1.2rem;
     padding: 0.2em;
 }
+
+#copy_notification {
+    display: none;
+    background-color: green;
+    z-index: 0;
+    border-radius: 0.25rem;
+    border: darkgreen solid 1px;
+    color: white;
+    padding: 0.5em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}

@@ -7,6 +7,10 @@
     src: url("/assets/fonts/OpenSans-VariableFont_wdth,wght.ttf")
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
     line-height: 120%;
@@ -38,7 +42,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 1em;
-    max-width: 400px;
+    max-width: 440px;
     background-color: white;
     margin: 1em 0;
 }
@@ -51,6 +55,10 @@ body {
     padding: 0.5em 0 0.5em 0;
 }
 
+.textbox {
+    border: 1px #888888 solid;
+}
+
 #kana {
     font-size: 1.5rem;
     padding: 0.5em;
@@ -58,15 +66,15 @@ body {
 
 .button-container {
     display: flex;
-    max-height: 2em;
     padding: 0.5em 0;
 }
 
 .buttons {
-    height: 2em;
+    height: 1.8em;
+    padding: 0.1em;
     background-color: white;
     width: auto;
-    border: 1px black solid;
+    border: 1px #888888 solid;
     cursor: pointer;
 }
 
@@ -91,7 +99,7 @@ body {
 
 #txt_area {
     width: 100%;
-    height: 10em;
+    height: 10rem;
     margin: 1em 0;
     display: flex;
     flex-direction: row;
@@ -113,6 +121,7 @@ body {
 
 #btn_copy {
     width: 2em;
+    background-color: #f0f0f0;
 }
 
 #btn_copy:hover {

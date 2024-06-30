@@ -142,7 +142,7 @@ function display() {
     currentWord = currentWord.replace(/(?:\r\n|\r|\n)/g, '<br>');
     currentTranslation = String(translationInput.value).replace(/(?:\r\n|\r|\n)/g, '<br>');
     
-    outputRaw.value = currentWord;
+    outputRaw.value = currentWord + currentTranslation;
     outputExample.innerHTML = currentWord;
     outputExampleTranslation.value = currentTranslation;
     outputExampleTranslation.innerHTML = currentTranslation;

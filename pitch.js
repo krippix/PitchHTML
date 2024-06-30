@@ -164,5 +164,5 @@ function display_notification(div) {
             div.style.display = "none";
             clearInterval(fadeEffect);
         }
-    }, 50);
+    }, 75);
 }

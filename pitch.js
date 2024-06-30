@@ -94,6 +94,7 @@ const outputRaw = document.getElementById('output-raw');
 const outputExample = document.getElementById('preview_pitch');
 const outputExampleTranslation = document.getElementById('preview_translation');
 const buttonCopy = document.getElementById('btn_copy');
+const copyNotification = document.getElementById('copy_notification');
 
 // handler
 const inputHandler = function() {
@@ -123,6 +124,7 @@ const clickReset = function() {
 
 const copyToClipboard = async () => {
     await navigator.clipboard.writeText(outputRaw.value);
+    display_notification(copyNotification);
 }
 
 
@@ -150,4 +152,17 @@ function display() {
 if (kanaInput) {
     word.setWord(kanaInput.value);
     display();
+}
+
+function display_notification(div) {
+    div.style.opacity = 1;
+    div.style.display = "block";
+    let fadeEffect = setInterval(() => {
+        if (div.style.opacity > 0) {
+            div.style.opacity -= 0.1;
+        } else {
+            div.style.display = "none";
+            clearInterval(fadeEffect);
+        }
+    }, 50);
 }

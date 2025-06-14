@@ -98,7 +98,10 @@ const copyNotification = document.getElementById('copy_notification');
 
 // handler
 const inputHandler = function() {
-    word.setWord(kanaInput.value);
+    if (kanaInput.value.trim() != "") {
+        kanaInput.value = kanaInput.value.trimStart();
+    }
+    word.setWord(kanaInput.value.trim());
     display();
 };
 
